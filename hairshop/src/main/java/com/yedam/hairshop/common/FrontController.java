@@ -38,8 +38,9 @@ public class FrontController extends HttpServlet {
 		//강산
 		
 		//승연
+		list.put("/hairshopMain.do", new TestController());
 		
-		System.out.println(charset);
+		
 	}
 
 

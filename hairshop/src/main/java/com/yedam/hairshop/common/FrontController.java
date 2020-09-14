@@ -1,4 +1,4 @@
-package hairshop.common;
+package com.yedam.hairshop.common;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.yedam.hairshop.admin.TestController;
 
 /*
 @WebServlet(name = "front", 
@@ -27,7 +29,7 @@ public class FrontController extends HttpServlet {
 		list = new HashMap<String, Controller>();
 		
 		//상민
-		list.put("/memberInsert.do", new hairshop.admin.TestController());
+		list.put("/memberInsert.do", new TestController());
 
 		//송현
 		

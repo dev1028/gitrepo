@@ -1,4 +1,4 @@
-package hairshop.admin;
+package com.yedam.hairshop.admin;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hairshop.common.Controller;
+import com.yedam.hairshop.common.Controller;
 
 public class TestController implements Controller {
 

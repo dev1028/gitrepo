@@ -9,7 +9,7 @@
 <body>
 <%=request.getAttribute("errormsg") %>
 
-<form method="post" name="frm" id="frm" action="login">
+<form method="post" name="frm" id="frm" action="${pageContext.request.contextPath}/membersLogin.do">
 	<div>
 		<label for="id">ID:</label>
 		<input type="text" id="id" name="id">

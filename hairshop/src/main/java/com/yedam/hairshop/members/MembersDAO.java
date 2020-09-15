@@ -31,6 +31,7 @@ public class MembersDAO {
 		try {
 			conn = ConnectionManager.getConnnect();
 			String sql = "select * from members " + " where mem_no=?";
+			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, membersVO.getMem_no());
 			rs = pstmt.executeQuery();

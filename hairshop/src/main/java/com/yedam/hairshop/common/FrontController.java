@@ -29,11 +29,12 @@ public class FrontController extends HttpServlet {
 		list = new HashMap<String, Controller>();
 		
 		//상민
-		list.put("/memberInsert.do", new TestController());
+		list.put("/membersInsert.do", new TestController());
 
 		//송현
 		
 		//린아
+		list.put("/membersLogin.do", new MembersLoginController());
 		
 		//강산
 		

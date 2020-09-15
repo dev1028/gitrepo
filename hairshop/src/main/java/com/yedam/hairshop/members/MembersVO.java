@@ -19,11 +19,15 @@ public class MembersVO {
 	private String mem_addr;
 	private String mem_city;
 	private String mem_country;
-	private String mem_townshop;
+	private String mem_township;
 	private String mem_latitude_longitude;
 	private String mem_saved_money;
 	private String mem_city_latitude_longitude;
 	private String mem_hair_length;
 	private String mem_hair_status;
+	
+	public MembersVO() {
+		super();
+	}
 	
 }

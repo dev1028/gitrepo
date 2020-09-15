@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.yedam.hairshop.common.ConnectionManager;
+
 public class MembersDAO {
 
 	// 전역변수
@@ -21,22 +23,34 @@ public class MembersDAO {
 	}
 
 	// 단건 조회
-	public MembersVO selectOne(MembersVO memberVO) {
-		MembersVO member = null; // select할때는 리턴값이 필요해서 리턴값을 저장할 변수 선언
+	public MembersVO selectOne(MembersVO membersVO) {
+		MembersVO members = null; // select할때는 리턴값이 필요해서 리턴값을 저장할 변수 선언
 
 		try {
 			conn = ConnectionManager.getConnnect();
-			String sql = "select * from member" + " where id=?"; // 컨+쉬+x 대문자, 컨+쉬+y 소문자 변환가능. 쿼리 엔터해서 쓸거면 앞에 공백 붙이기
-			pstmt = conn.prepareStatement(sql); // 미리 sql 구문이 준비가 되어야한다
-			pstmt.setString(1, memberVO.getId()); // ?의 첫번째 자리에 올 값 지정
-			rs = pstmt.executeQuery(); // select 시에는 executeQuery() 쓰기
+			String sql = "select * from members " + " where mem_no=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, membersVO.getMem_no());
+			rs = pstmt.executeQuery();
 
-			if (rs.next()) { // 단건조회라서 next()로 한건 한건마다 true 인지 false인지 확인하고 이동함
-				member = new MembersVO();
-				member.setId(rs.getString(1)); // 컬럼이 첫번째 자리라서 1을 입력한거임
-				member.setPw(rs.getString("pw"));
-				member.setGender(rs.getString("gender")); // 컬럼명에다가 별칭있으면 별칭을 넣어줘야함
-				member.setJob(rs.getString("job")); // 대소문자 구별 없음
+			if (rs.next()) {
+				members = new MembersVO();
+				members.setMem_no(rs.getString(1));
+				members.setMem_email(rs.getString(2));
+				members.setMem_pw(rs.getString(3));
+				members.setMem_name(rs.getString(4));
+				members.setMem_phone(rs.getString(5));
+				members.setMem_birth(rs.getString(6));
+				members.setMem_sex(rs.getString(7));
+				members.setMem_addr(rs.getString(8));
+				members.setMem_city(rs.getString(9));
+				members.setMem_country(rs.getString(10));
+				members.setMem_township(rs.getString(11));
+				members.setMem_latitude_longitude(rs.getString(12));
+				members.setMem_country(rs.getString(13));
+				members.setMem_country(rs.getString(14));
+				members.setMem_country(rs.getString(15));
+				members.setMem_country(rs.getString(16));
 			} else {
 				System.out.println("no data");
 			}
@@ -46,7 +60,7 @@ public class MembersDAO {
 		} finally {
 			ConnectionManager.close(rs, pstmt, conn);
 		}
-		return member; // 값을 리턴해줌
+		return members; // 값을 리턴해줌
 	}
 
 }

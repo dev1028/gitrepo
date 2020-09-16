@@ -6,9 +6,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Autocomplete - Custom data and display</title>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <style>
 #project-label {
 	display: block;
@@ -27,30 +30,13 @@
 	padding: 0;
 }
 </style>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 <script>
 	$(function() {
-		var projects = [ {
-			value : "jquery",
-			label : "jQuery",
-			desc : "the write less, do more, JavaScript library",
-			icon : "jquery_32x32.png"
-		}, {
-			value : "jquery-ui",
-			label : "jQuery UI",
-			desc : "the official user interface library for jQuery",
-			icon : "jqueryui_32x32.png"
-		}, {
-			value : "sizzlejs",
-			label : "Sizzle JS",
-			desc : "a pure-JavaScript CSS selector engine",
-			icon : "sizzlejs_32x32.png"
-		} ];
-
 		$("#project").autocomplete({
-			minLength : 0,
-			source : "search.do",
+			minLength : 1,
+			source : "../search.do",
 			focus : function(event, ui) {
 				$("#project").val(ui.item.label);
 				return false;
@@ -74,8 +60,7 @@
 <body>
 
 	<div id="project-label">Select a project (type "j" for a start):</div>
-	<img id="project-icon" src="images/transparent_1x1.png"
-		class="ui-state-default" alt="">
+	<img id="project-icon" src="images/transparent_1x1.png" class="ui-state-default" alt="">
 	<input id="project">
 	<input type="hidden" id="project-id">
 	<p id="project-description"></p>

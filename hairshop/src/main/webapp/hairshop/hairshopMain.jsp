@@ -20,6 +20,8 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 	crossorigin="anonymous"></script>
+	
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
 		var calendarEl = document.getElementById('calendar');
@@ -61,6 +63,53 @@
 				     
 		});
 		calendar.render();
+		
+		// Load the Visualization API and the corechart package.
+	      google.charts.load('current', {'packages':['corechart']});
+
+	      // Set a callback to run when the Google Visualization API is loaded.
+	      google.charts.setOnLoadCallback(drawChart);
+
+	      // Callback that creates and populates a data table,
+	      // instantiates the pie chart, passes in the data and
+	      // draws it.
+	      function drawChart() {
+
+	        // Create the data table.
+	        var data = new google.visualization.DataTable();
+	        data.addColumn('string', '부서');
+	        data.addColumn('number', '사원수');
+	        
+	        var datatable = [];
+	        $.ajax({
+	        	async : false,
+	        	url: "ajax/ChartData.do",
+	        	dataType: "json",
+	        	success : function(datas){
+	        		for(i=0; i<datas.length; i++){
+	        			var innertb = [datas[i].name, parseInt(datas[i].cnt)]; 
+	        			datatable.push(innertb);
+	        		}
+	        	}
+	        	
+	        });
+	        
+	        data.addRows(datatable);
+
+	        // Set chart options
+	        var options = {'title':'매장 현황',
+	                       'width':500,
+	                       'height':500};
+
+	        // Instantiate and draw our chart, passing in some options.
+	        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+	        chart.draw(data, options);
+	      }
+		
+		
+		
+		
+		
 	});
 </script>
 </head>
@@ -68,7 +117,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm">
-				<div>홈 주 일</div>
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				  <label class="btn btn-secondary active">
+				    <input type="radio" name="options" id="option1" checked> 일
+				  </label>
+				  <label class="btn btn-secondary">
+				    <input type="radio" name="options" id="option2"> 주
+				  </label>
+				  <label class="btn btn-secondary">
+				    <input type="radio" name="options" id="option3"> 월
+				  </label>
+				</div>
 			</div>
 			<div class="col-sm">
 				<div>주</div>
@@ -82,9 +141,19 @@
 				<div id='calendar'></div>
 			</div>
 			<div class="col-3">
-				<div>매장 현황</div>
+				<div id="chart_div"></div>
+				<div class="container-fluid">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				  <label class="btn btn-secondary active">
+				    <input type="radio" name="options" id="option1" checked> 일
+				  </label>
+				  <label class="btn btn-secondary">
+				    <input type="radio" name="options" id="option2"> 주
+				  </label>
+				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

@@ -2,8 +2,9 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<style>
+	
+<head>
+<style>
 div.container {
     width: 100%;
     border: 1px solid gray;

@@ -1,4 +1,4 @@
-package com.yedam.hairshop.members;
+package com.yedam.hairshop.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 
-public class MembersVO {
+public class MembersVo {
 	private String mem_no;
 	private String mem_email;
 	private String mem_pw;
@@ -26,7 +26,7 @@ public class MembersVO {
 	private String mem_hair_length;
 	private String mem_hair_status;
 	
-	public MembersVO() {
+	public MembersVo() {
 		super();
 	}
 	

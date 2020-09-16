@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.hairshop.common.Controller;
-import com.yedam.hairshop.model.DesignerDAO;
-import com.yedam.hairshop.model.DesignerVO;
+import com.yedam.hairshop.dao.DesignerDAO;
+import com.yedam.hairshop.model.DesignerVo;
 
 public class DesignerUpdateController implements Controller{
 
@@ -21,7 +21,7 @@ public class DesignerUpdateController implements Controller{
 		String work_end_time = request.getParameter("work_end_time");
 		String hire_date = request.getParameter("hire_date");
 		
-		DesignerVO designerVO = new DesignerVO();
+		DesignerVo designerVO = new DesignerVo();
 		
 		designerVO.setDesigner_pw(designer_pw);
 		designerVO.setDesigner_phone(designer_phone);

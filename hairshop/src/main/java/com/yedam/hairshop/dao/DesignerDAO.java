@@ -1,9 +1,11 @@
-package com.yedam.hairshop.model;
+package com.yedam.hairshop.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.yedam.hairshop.model.DesignerVo;
 
 public class DesignerDAO {
 	
@@ -19,7 +21,7 @@ public class DesignerDAO {
 	}
 	//디자이너 정보 추가
 	
-	public int update(DesignerVO designerVO) {
+	public int update(DesignerVo designerVO) {
 		int r = 0;
 		String sql = "update designer set designer_pw = ?, designer_phone = ?, designer_dayoff = ?  "
 					+ " work_start_time = ?, work_end_time = ?, hire_date = ? where designer_no = ?" ;

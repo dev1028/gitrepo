@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.hairshop.common.Controller;
 
-public class MembersLoginController implements Controller {
+public class MembersLoginCtrl implements Controller {
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("멤버로그인");

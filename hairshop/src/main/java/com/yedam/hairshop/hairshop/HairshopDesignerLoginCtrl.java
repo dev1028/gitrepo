@@ -35,7 +35,7 @@ public class HairshopDesignerLoginCtrl implements Controller {
 			if (hsVo.getHs_pw().equals(resultVo.getHs_pw())) {
 				request.getSession().setAttribute("login", resultVo);
 				request.getSession().setAttribute("no", resultVo.getHs_no());
-				page = "../hairshopMainCtrl.do";
+				page = "hairshopMainCtrl.do";
 			} else { // 패스워드 불일치
 				request.setAttribute("errormsg", "nopw");
 				page = "/hairshop/hairshopDesignerLogin.jsp";

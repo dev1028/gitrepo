@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.hairshop.common.Controller;
+import com.yedam.hairshop.dao.MembersDAO;
+import com.yedam.hairshop.model.MembersVo;
 
 public class MembersLoginCtrl implements Controller {
 
@@ -14,12 +16,12 @@ public class MembersLoginCtrl implements Controller {
 		System.out.println("멤버로그인");
 
 		// 파라미터 VO에 담기
-		MembersVO membersVO = new MembersVO();
+		MembersVo membersVO = new MembersVo();
 		membersVO.setMem_email(request.getParameter("loginid"));		// 파라미터는 name값 넘기는거
 		membersVO.setMem_pw(request.getParameter("loginpw"));
 
 		// 2. 서비스 처리(DB)
-		MembersVO resultVO = MembersDAO.getInstance().loginSelectOne(membersVO); // memberVO 집어넣고 결과를 MemberVO로 받기
+		MembersVo resultVO = MembersDAO.getInstance().loginSelectOne(membersVO); // memberVO 집어넣고 결과를 MemberVO로 받기
 
 		// 3. 결과 저장
 		String page = ""; // 이동할 페이지 이름 변수 선언
@@ -31,7 +33,7 @@ public class MembersLoginCtrl implements Controller {
 			if (membersVO.getMem_pw().equals(resultVO.getMem_pw())) { // memberVO에 있는 pw와 resultVO의 pw를 비교해서 같으면 로그인성공
 				request.getSession().setAttribute("login", resultVO);
 				request.getSession().setAttribute("loginid", resultVO.getMem_email());
-				page = "/members/membersLogin.jsp";
+				page = "/members/membersLoginMain.jsp";
 			} else { // 패스워드 불일치
 				request.setAttribute("errormsg", "패스워드 불일치");
 				page = "/members/membersLogin.jsp";

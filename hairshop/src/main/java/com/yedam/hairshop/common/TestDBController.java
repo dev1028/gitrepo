@@ -7,14 +7,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.hairshop.members.MembersDAO;
-import com.yedam.hairshop.members.MembersVO;
+import com.yedam.hairshop.dao.MembersDAO;
+import com.yedam.hairshop.model.MembersVo;
 
 public class TestDBController implements Controller{
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<MembersVO> list = MembersDAO.getInstance().selectAll();
+		List<MembersVo> list = MembersDAO.getInstance().selectAll();
 		if(list.size() == 0)
 		{
 			System.out.println("접속 불량");

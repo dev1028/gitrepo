@@ -1,4 +1,4 @@
-package com.yedam.hairshop.members;
+package com.yedam.hairshop.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.yedam.hairshop.common.ConnectionManager;
+import com.yedam.hairshop.model.MembersVo;
 
 public class MembersDAO {
 
@@ -25,8 +26,8 @@ public class MembersDAO {
 	}
 
 	// 단건 조회
-	public MembersVO loginSelectOne(MembersVO membersVO) {
-		MembersVO members = null; // select할때는 리턴값이 필요해서 리턴값을 저장할 변수 선언
+	public MembersVo loginSelectOne(MembersVo membersVO) {
+		MembersVo members = null; // select할때는 리턴값이 필요해서 리턴값을 저장할 변수 선언
 
 		try {
 			conn = ConnectionManager.getConnnect();
@@ -38,7 +39,7 @@ public class MembersDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				members = new MembersVO();
+				members = new MembersVo();
 				members.setMem_no(rs.getString(1));
 				members.setMem_email(rs.getString(2));
 				members.setMem_pw(rs.getString(3));
@@ -68,8 +69,8 @@ public class MembersDAO {
 	}
 
 	// 단건 조회
-	public MembersVO selectOne(MembersVO membersVO) {
-		MembersVO members = null; // select할때는 리턴값이 필요해서 리턴값을 저장할 변수 선언
+	public MembersVo selectOne(MembersVo membersVO) {
+		MembersVo members = null; // select할때는 리턴값이 필요해서 리턴값을 저장할 변수 선언
 
 		try {
 			conn = ConnectionManager.getConnnect();
@@ -80,7 +81,7 @@ public class MembersDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				members = new MembersVO();
+				members = new MembersVo();
 				members.setMem_no(rs.getString(1));
 				members.setMem_email(rs.getString(2));
 				members.setMem_pw(rs.getString(3));
@@ -110,8 +111,8 @@ public class MembersDAO {
 	}
 
 	// 전체 조회
-	public List<MembersVO> selectAll() { // 조회가 여러건이면 DeptVO를 list에 담음
-		List<MembersVO> list = new ArrayList<MembersVO>(); // 결과값을 저장할 list 변수 객체 선언
+	public List<MembersVo> selectAll() { // 조회가 여러건이면 DeptVO를 list에 담음
+		List<MembersVo> list = new ArrayList<MembersVo>(); // 결과값을 저장할 list 변수 객체 선언
 
 		try {
 			conn = ConnectionManager.getConnnect();
@@ -120,7 +121,7 @@ public class MembersDAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				MembersVO members = new MembersVO();
+				MembersVo members = new MembersVo();
 				members.setMem_no(rs.getString(1));
 				members.setMem_email(rs.getString(2));
 				members.setMem_pw(rs.getString(3));
@@ -148,7 +149,7 @@ public class MembersDAO {
 	}
 
 	// login update
-	public void update(MembersVO membersVO) {
+	public void update(MembersVo membersVO) {
 		try {
 			conn = ConnectionManager.getConnnect();
 			String sql = "update members set mem_pw =? where mem_email=?";
@@ -166,7 +167,7 @@ public class MembersDAO {
 	}
 
 	// delete
-	public void delete(MembersVO membersVO) {
+	public void delete(MembersVo membersVO) {
 		try {
 			conn = ConnectionManager.getConnnect();
 			String sql = "delete from members where mem_email=?";
@@ -183,7 +184,7 @@ public class MembersDAO {
 	}
 
 	// insert
-	public void insert(MembersVO membersVO) {
+	public void insert(MembersVo membersVO) {
 		int r = 0;
 		try {
 			// 1. DB 연결

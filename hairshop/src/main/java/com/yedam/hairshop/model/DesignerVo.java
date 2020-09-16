@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 
-public class DesignerVO {
+public class DesignerVo {
 
 	private String designer_no;
 	private String designer_name;

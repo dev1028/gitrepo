@@ -39,6 +39,8 @@ public class MembersLoginController implements Controller {
 			}
 		}
 
+		System.out.println("이동: " + page);
+		
 		// 4. 뷰페이지 이동(redirect, forward) 또는 뷰페이지 출력
 		request.getRequestDispatcher(page).forward(request, response);
 

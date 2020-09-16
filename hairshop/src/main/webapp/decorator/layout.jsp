@@ -40,6 +40,7 @@ article {
     overflow: hidden;
 }
 </style>
+<decorator:head></decorator:head>
 </head>
 <body>
 
@@ -61,6 +62,7 @@ article {
 
 <article>
 	<!-- 바디 영역 -->
+	<decorator:body></decorator:body>
 </article>
 
 <footer>Copyright &copy; W3Schools.com</footer>

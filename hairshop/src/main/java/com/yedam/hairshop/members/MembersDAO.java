@@ -30,10 +30,11 @@ public class MembersDAO {
 
 		try {
 			conn = ConnectionManager.getConnnect();
-			String sql = "select * from members " + " where mem_email=?";
+			String sql = "select * from members " + " where mem_email=? and mem_pw=?";
 			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, membersVO.getMem_no());
+			pstmt.setString(1, membersVO.getMem_email());
+			pstmt.setString(2, membersVO.getMem_pw());
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.hairshop.admin.TestController;
+import com.yedam.hairshop.members.MembersLoginController;
 
 /*
 @WebServlet(name = "front", 
@@ -48,8 +49,8 @@ public class FrontController extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		System.out.println("service");
-		
 		req.setCharacterEncoding(charset);
+		res.setContentType("text/html; charset=UTF-8");
 		String uri = req.getRequestURI();					// frontWeb/memberInsert.do
 		String contextPath = req.getContextPath();			// frontWeb
 		String path = uri.substring(contextPath.length());	// memberInsert.do

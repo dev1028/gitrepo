@@ -10,11 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.hairshop.admin.TestController;
-<<<<<<< HEAD
 import com.yedam.hairshop.members.MembersLoginController;
-=======
 import com.yedam.hairshop.hairshop.hairshopMainCtrl;
->>>>>>> branch 'master' of https://github.com/dev1028/gitrepo.git
 
 /*
 @WebServlet(name = "front", 
@@ -34,14 +31,11 @@ public class FrontController extends HttpServlet {
 		list = new HashMap<String, Controller>();
 		
 		//상민
-<<<<<<< HEAD
 		list.put("/membersInsert.do", new TestController());
 
-=======
 		list.put("/memberInsert.do", new TestController());
 		list.put("/testDB.do", new TestDBController());
 		
->>>>>>> branch 'master' of https://github.com/dev1028/gitrepo.git
 		//송현
 		
 		//린아

@@ -10,7 +10,6 @@ import com.yedam.hairshop.common.Controller;
 
 public class MembersLoginController implements Controller {
 
-	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("멤버로그인");
 

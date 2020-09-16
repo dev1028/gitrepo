@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.hairshop.admin.TestController;
-<<<<<<< HEAD
-import com.yedam.hairshop.members.MembersLoginController;
-=======
+
 import com.yedam.hairshop.members.MembersLoginCtrl;
->>>>>>> branch 'master' of https://github.com/dev1028/gitrepo
-import com.yedam.hairshop.hairshop.hairshopMainCtrl;
+import com.yedam.hairshop.hairshop.HairshopDesignerLoginCtrl;
+import com.yedam.hairshop.hairshop.HairshopMainCtrl;
+//github.com/dev1028/gitrepo
 
 /*
 @WebServlet(name = "front", 
@@ -36,11 +35,7 @@ public class FrontController extends HttpServlet {
 		
 		//상민
 		list.put("/membersInsert.do", new TestController());
-<<<<<<< HEAD
-=======
 
-		list.put("/memberInsert.do", new TestController());
->>>>>>> branch 'master' of https://github.com/dev1028/gitrepo
 		list.put("/testDB.do", new TestDBController());
 		
 		//송현
@@ -51,7 +46,8 @@ public class FrontController extends HttpServlet {
 		//강산
 		
 		//승연
-		list.put("/hairshopMain.do", new hairshopMainCtrl());
+		list.put("/hairshopMain.do", new HairshopMainCtrl());
+		list.put("/hairshopDesignerLogin.do", new HairshopDesignerLoginCtrl());
 		
 		
 	}

@@ -31,7 +31,8 @@ public class FrontController extends HttpServlet {
 		
 		//상민
 		list.put("/memberInsert.do", new TestController());
-
+		list.put("/testDB.do", new TestDBController());
+		
 		//송현
 		
 		//린아
@@ -54,7 +55,12 @@ public class FrontController extends HttpServlet {
 		String contextPath = req.getContextPath();			// frontWeb
 		String path = uri.substring(contextPath.length());	// memberInsert.do
 		Controller subController = list.get(path);
-		subController.execute(req, res);
+		
+		if(subController == null) {
+			System.out.println("잘못된 URL: " + path);
+		}else {
+			subController.execute(req, res);
+		}
 	}
 
 }

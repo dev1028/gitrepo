@@ -2,12 +2,9 @@ package com.yedam.hairshop.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
 
 @Data
-@ToString
 @AllArgsConstructor
-
 public class MembersVo {
 	private String mem_no;
 	private String mem_email;

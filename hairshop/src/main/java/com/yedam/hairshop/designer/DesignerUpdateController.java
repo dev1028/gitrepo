@@ -12,7 +12,6 @@ import com.yedam.hairshop.model.DesignerVo;
 
 public class DesignerUpdateController implements Controller{
 
-	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String designer_pw = request.getParameter("designer_pw");
 		String designer_phone = request.getParameter("designer_phone");
